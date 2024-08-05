@@ -37,8 +37,7 @@ The assembled firmware is in tests directory.
 
 ## Run CouchDB
 
-1. Install docker.
-1. Run database `sudo`:
+1. Run database:
     
     ```bash
     docker run --name couchdb -p 5984:5984 -e COUCHDB_USER=dev -e COUCHDB_PASSWORD=dev -v ./database/couchdb.ini:/opt/couchdb/etc/local.ini couchdb:3.3
@@ -49,7 +48,7 @@ The assembled firmware is in tests directory.
     ```bash
     docker compose up
     ```
-1. The database is available at http://127.0.0.1:5984/_utils
+2. The database is available at http://127.0.0.1:5984/_utils
 Login/password: `dev`
 
 ## HardPy operator panel

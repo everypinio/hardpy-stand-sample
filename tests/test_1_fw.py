@@ -10,9 +10,11 @@ from pyocd.flash.file_programmer import FileProgrammer
 
 pytestmark = pytest.mark.module_name("Testing preparation")
 
+
 def firmware_find():
     fw_dir = Path(Path(__file__).parent.resolve() / "dut-nucleo.hex")
     return glob(str(fw_dir))
+
 
 @pytest.mark.case_name("Availability of firmware")
 def test_fw_exist():
@@ -32,11 +34,3 @@ def test_fw_flash():
 
     hardpy.set_message(f"Successfully flashed file {fw}", "flash_status")
     assert True
-
-@pytest.mark.case_name("Location check")
-def test_location():
-    hardpy.set_message(f"Current location is Belgrade")
-    info = {
-        "location": "Belgrade",
-    }
-    hardpy.set_stand_info(info)

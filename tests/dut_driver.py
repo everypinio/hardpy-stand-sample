@@ -59,4 +59,4 @@ class DutDriver(object):
             return Serial(port=port, baudrate=baud)
         except IOError:
             print("Error open port")
-            return None
+            raise IOError

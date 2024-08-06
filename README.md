@@ -28,8 +28,8 @@ The assembled firmware is in tests directory.
     or, if you prefer conda, install the conda environment:
 
     ```bash
-    conda env create -f conda.yaml
-    conda activate hardpy-sample
+    $ conda env create -f conda.yaml
+    $ conda activate hardpy-sample
     ```
 1. Install `pyocd` in the current environment:
     ```bash
@@ -42,13 +42,13 @@ The assembled firmware is in tests directory.
 1. Run database from `database` folder:
 
     ```bash
-    docker run --name couchdb -p 5984:5984 -e COUCHDB_USER=dev -e COUCHDB_PASSWORD=dev -v ./couchdb.ini:/opt/couchdb/etc/local.ini couchdb:3.3
+    $ docker run --name couchdb -p 5984:5984 -e COUCHDB_USER=dev -e COUCHDB_PASSWORD=dev -v ./couchdb.ini:/opt/couchdb/etc/local.ini couchdb:3.3
     ```
 
     or run docker compose:
 
     ```bash
-    docker compose up
+    $ docker compose up
     ```
 2. The database is available at http://127.0.0.1:5984/_utils
 Login/password: `dev`

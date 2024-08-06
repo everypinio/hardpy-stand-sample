@@ -21,6 +21,12 @@ def test_fw_exist():
     assert firmware_find() != []
 
 
+@pytest.mark.case_name("Check DUT connection")
+def test_check_connection(device_under_test):
+    assert device_under_test.serial is not None, "DUT not connected"
+
+
+@pytest.mark.dependency("test_1_fw::test_check_connection")
 @pytest.mark.case_name("Flashing firmware")
 def test_fw_flash():
     fw = firmware_find()[0]

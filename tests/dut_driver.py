@@ -7,7 +7,7 @@ class DutDriver(object):
 
     def __init__(self, port: str, baud: int) -> None:
         # Connect to device on init
-        self._serial = self._connect(port, baud)
+        self.serial = self._connect(port, baud)
         self.SERIAL_NUMBER_STR_LEN = 11
         self.SIMPLE_REPLY_LEN = 1
 
@@ -17,7 +17,7 @@ class DutDriver(object):
         Args:
             data (str): data to send.
         """
-        self._serial.write(data.encode())
+        self.serial.write(data.encode())
 
     def read_bytes(self, size: int) -> bytes:
         """Read raw bytes from device.
@@ -28,9 +28,9 @@ class DutDriver(object):
         Returns:
             bytes: received raw data from device.
         """
-        return self._serial.read(size)
+        return self.serial.read(size)
 
-    def req_serial_num(self) -> str:
+    def reqserial_num(self) -> str:
         self.write_bytes("0")
         reply = self.read_bytes(self.SERIAL_NUMBER_STR_LEN)
         return reply.decode("ascii")[:-1]
@@ -45,7 +45,7 @@ class DutDriver(object):
         reply = self.read_bytes(self.SIMPLE_REPLY_LEN)
         return unpack("<b", reply)[0]
 
-    def _connect(self, port: str, baud: int) -> Serial:
+    def _connect(self, port: str, baud: int) -> Serial | None:
         """Process connection to serial adapter.
 
         Args:
@@ -59,4 +59,4 @@ class DutDriver(object):
             return Serial(port=port, baudrate=baud)
         except IOError:
             print("Error open port")
-            raise IOError
+            return None

@@ -8,7 +8,10 @@ from hardpy.pytest_hardpy.utils.dialog_box import (
 
 from dut_driver import DutDriver
 
-pytestmark = pytest.mark.module_name("User interface")
+pytestmark = [
+    pytest.mark.module_name("User interface"),
+    pytest.mark.dependency("test_1_fw::test_fw_flash"),
+]
 
 
 @pytest.mark.case_name("User button")

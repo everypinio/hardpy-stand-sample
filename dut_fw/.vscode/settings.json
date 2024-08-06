@@ -1,0 +1,14 @@
+{
+    "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
+    "cortex-debug.openocdPath": "/usr/bin/openocd",
+    "cortex-debug.armToolchainPath": "/opt/gcc-arm-none-eabi/bin",
+    "C_Cpp.autoAddFileAssociations": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    }
+}

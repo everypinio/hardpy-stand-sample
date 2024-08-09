@@ -23,6 +23,9 @@ def test_serial_num(device_under_test: DutDriver):
     }
     hardpy.set_dut_info(info)
 
+
 @pytest.mark.case_name("LED")
 def test_jumper_closed(device_under_test: DutDriver):
-    assert device_under_test.req_jumper_status() == 0
+    assert (
+        device_under_test.req_jumper_status() == 0
+    ), "LED does not light up, check the jumper"

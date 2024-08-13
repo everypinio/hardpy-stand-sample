@@ -40,4 +40,4 @@ def test_jumper_closed(device_under_test: DutDriver):
         widget=DialogBoxWidget(DialogBoxWidgetType.NUMERIC_INPUT),
     )
     user_input = int(hardpy.run_dialog_box(dbx))
-    assert 3 == user_input, f"The LED blinked 10 times, user entered {user_input}"
+    assert 10 == user_input, f"The LED blinked 10 times, user entered {user_input}"

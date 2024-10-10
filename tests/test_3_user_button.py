@@ -1,8 +1,7 @@
 import pytest
 import hardpy
-from hardpy.pytest_hardpy.utils.dialog_box import (
-    DialogBoxWidget,
-    DialogBoxWidgetType,
+from hardpy import (
+    NumericInputWidget,
     DialogBox,
 )
 
@@ -24,7 +23,7 @@ def test_user_button(device_under_test: DutDriver):
             f"been pressed and press the Confirm button"
         ),
         title_bar="User button",
-        widget=DialogBoxWidget(DialogBoxWidgetType.NUMERIC_INPUT),
+        widget=NumericInputWidget(),
     )
     user_input = int(hardpy.run_dialog_box(dbx))
     assert user_input > 0, "A minimum of one press is required to test a button"

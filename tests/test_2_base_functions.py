@@ -1,13 +1,14 @@
 import pytest
 import hardpy
-from hardpy.pytest_hardpy.utils.dialog_box import (
-    DialogBoxWidget,
-    DialogBoxWidgetType,
+
+from hardpy import (
+    NumericInputWidget,
+    DialogBox,
 )
+
 
 from dut_driver import DutDriver
 
-pytestmark = pytest.mark.module_name("Base functions")
 
 pytestmark = [
     pytest.mark.module_name("Base functions"),
@@ -34,10 +35,10 @@ def test_jumper_closed(device_under_test: DutDriver):
     jumper_status = device_under_test.req_jumper_status()
     assert jumper_status == 0, "LED does not light up, check the jumper"
 
-    dbx = hardpy.dialog_box.DialogBox(
+    dbx = DialogBox(
         dialog_text="Enter the number of LED blinks",
         title_bar="LED check",
-        widget=DialogBoxWidget(DialogBoxWidgetType.NUMERIC_INPUT),
+        widget=NumericInputWidget(),
     )
     user_input = int(hardpy.run_dialog_box(dbx))
     assert 10 == user_input, f"The LED blinked 10 times, user entered {user_input}"

@@ -9,7 +9,7 @@ This is an example of using [HardPy](https://github.com/everypinio/hardpy) to cr
 
 ## Repository structure
 
-1. `tests`: test bench using HardPy.
+1. `tests`: test bench using HardPy .
 1. `database`: config for database deployment.
 1. `dut_fw`: DUT firmware source code.
 Can be modified if desired.
@@ -39,7 +39,7 @@ The assembled firmware is in tests directory.
 
 ## Run CouchDB
 
-1. Run database from `database` folder:
+1. Run database from `tests` folder:
 
     ```bash
     $ docker run --name couchdb -p 5984:5984 -e COUCHDB_USER=dev -e COUCHDB_PASSWORD=dev -v ./couchdb.ini:/opt/couchdb/etc/local.ini couchdb:3.3
@@ -48,14 +48,14 @@ The assembled firmware is in tests directory.
     or run docker compose:
 
     ```bash
-    $ docker compose up
+    $ docker compose up -d
     ```
 2. The database is available at http://127.0.0.1:5984/_utils
 Login/password: `dev`
 
 ## Run HardPy operator panel
 
-Run `hardpy-panel tests` and check browser:
+Run `hardpy run tests` and check browser:
 
 http://localhost:8000/
 
